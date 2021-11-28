@@ -19,7 +19,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
@@ -27,9 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/hp"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            app:counterOverflowTextAppearance="@style/CounterStyle"
             app:endIconMode="clear_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
@@ -47,9 +44,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/lp"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            app:counterOverflowTextAppearance="@style/CounterStyle"
             app:endIconMode="clear_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
@@ -67,9 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/p"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            app:counterOverflowTextAppearance="@style/CounterStyle"
             app:endIconMode="clear_text"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
@@ -82,6 +73,15 @@
                 android:inputType="number">
             </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/save"
+            />
 
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,7 +6,7 @@
     <string name="mySnack">Пока просто кнопка</string>
     <string name="text_note">Текст заметки</string>
     <string name="title_note">Заголовок</string>
-    <string name="new_note_title">Новая заметка</string>
+    <string name="new_note_title">Новая запись</string>
     <string name="no_data">Нет данных</string>
     <string name="_25">25 октября</string>
     <string name="_23_54">23:54</string>
@@ -17,4 +17,7 @@
     <string name="hp">Верхнее давление</string>
     <string name="lp">Нижнее давление</string>
     <string name="p">Пульс</string>
+    <string name="ok_bth_title">OK</string>
+    <string name="save">Сохранить</string>
+    <string name="press_pulse">Давление и пульс от 2 до 3 цифр</string>
 </resources>

@@ -16,6 +16,8 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
     private var currentNote:Note? = null
     var   isSameNote = false
 
+    private var listOfDate:MutableList<String> = mutableListOf()
+
     interface OniIemClickListener{
         fun onItemClick(note: Note)
     }
@@ -38,8 +40,10 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
     override fun getItemCount(): Int = notes.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val arrNote = notes[position].titleDate.split("-")
+
+        val arrNote :List<String> = notes[position].titleDate.split("-")
         val arrCurrent:List<String>? =  currentNote?.titleDate?.split("-")
+
         isSameNote =  arrCurrent?. let{
                     arrNote[0].toInt() == arrCurrent[0].toInt()
                     &&arrNote[1].toInt() == arrCurrent[1].toInt()
@@ -68,16 +72,19 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
             tvHPress.text = note.highPress
             tvLPress.text = note.lowPress
             tvPulse.text = note.pulse
-            if (note.highPress.toInt() in 100..130 && note.lowPress.toInt() in 70..85){
-                clGroup.background = ContextCompat.getDrawable(itemView.context, R.drawable.gr2)
-            }else{
-                clGroup.background = ContextCompat.getDrawable(itemView.context, R.drawable.gr3)
+            if (note.highPress.isNotEmpty()){
+                if (note.highPress.toInt() in 100..130 && note.lowPress.toInt() in 70..85){
+                    clGroup.background = ContextCompat.getDrawable(itemView.context, R.drawable.gr2)
+                }else{
+                    clGroup.background = ContextCompat.getDrawable(itemView.context, R.drawable.gr3)
+                }
             }
 
             //ставим слушатель щелчков на заметках и передаём заметку через интерфейс в активити
             itemView.setOnClickListener {
                 oniIemClickListener.onItemClick(note)
             }
+           // listOfDate.add(notes[position].titleDate)
         }
 
     }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "936167386063",
+    "project_id": "jobless6firestore",
+    "storage_bucket": "jobless6firestore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:936167386063:android:f163af186e1e30b69180ba",
+        "android_client_info": {
+          "package_name": "com.bartex.jobless6_firestor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "936167386063-a1o0jp51qsmfo2udu1sljsurh7jc3qe4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bartex.jobless6_firestor",
+            "certificate_hash": "28ec4920267690ed1b9d102f801c7894e5cb8aac"
+          }
+        },
+        {
+          "client_id": "936167386063-6dq36lkmv37fcghciicv1o5470ok8s0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwQwBShzAvddpwutcTKwd-GM3g_jgSf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "936167386063-6dq36lkmv37fcghciicv1o5470ok8s0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

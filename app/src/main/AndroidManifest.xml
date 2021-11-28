@@ -11,11 +11,11 @@
         android:theme="@style/Theme.JobLess6_Firestor">
 
         <activity
-            android:name=".view.NoteActivity">
+            android:name=".view.note.NoteActivity">
         </activity>
 
         <activity
-            android:name=".view.MainActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

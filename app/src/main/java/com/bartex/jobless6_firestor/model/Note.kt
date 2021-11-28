@@ -1,7 +1,8 @@
 package com.bartex.jobless6_firestor.model
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
+import java.util.*
 
 @Parcelize
 data class Note(
@@ -10,7 +11,8 @@ data class Note(
     val highPress:String = "",
     val lowPress:String = "",
     val pulse:String = "",
-    val lastTime:String = ""
+    val lastTime:String = "",
+    val date:Long = Date().time
 ) : Parcelable {
 
     override fun equals(other: Any?): Boolean {
