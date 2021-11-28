@@ -1,6 +1,5 @@
 package com.bartex.jobless6_firestor.view.note
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -9,9 +8,6 @@ import com.bartex.jobless6_firestor.model.Note
 import com.bartex.jobless6_firestor.model.NoteResult
 import com.bartex.jobless6_firestor.repo.NoteRepository
 
-// создали метод loadNote() для получения
-// заметки из базы данных. Как и в MainViewModel, проверяем тип пришедшего NoteResult
-// и передаем в Activity данные или ошибку.
 class NoteViewModel(private  val repository:NoteRepository = NoteRepository)
     : ViewModel() {
     val viewStateLiveData = MutableLiveData<NoteViewState>()

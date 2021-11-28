@@ -4,10 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
@@ -31,7 +27,6 @@ class NoteActivity : AppCompatActivity() {
     private lateinit var toolbarNote: Toolbar
     private lateinit var buttonSave: Button
     private var note: Note? = null
-    private val TAG = "33333"
 
     companion object {
         private val EXTRA_NOTE = NoteActivity::class.java.name + "extra.NOTE"
@@ -60,7 +55,6 @@ class NoteActivity : AppCompatActivity() {
 
         viewModel.getViewState().observe(this, object : Observer<NoteViewState> {
             override fun onChanged(t: NoteViewState?) {
-                Log.d(TAG, "***3*** BaseActivity onChanged")
                 if (t==null) return
                 if (t.error!=null)renderError(t.error)
                 if (t.note != null)renderData(t.note)

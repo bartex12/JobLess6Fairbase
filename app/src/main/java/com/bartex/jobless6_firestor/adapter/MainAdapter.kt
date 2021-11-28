@@ -21,7 +21,6 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
     interface OniIemClickListener{
         fun onItemClick(note: Note)
     }
-
     //так сделано чтобы передавать список в адаптер без конструктора
     // - через присвоение полю значения
     var notes:List<Note> = listOf()
@@ -43,7 +42,7 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
 
         val arrNote :List<String> = notes[position].titleDate.split("-")
         val arrCurrent:List<String>? =  currentNote?.titleDate?.split("-")
-
+        //сравнение каждого элемента
         isSameNote =  arrCurrent?. let{
                     arrNote[0].toInt() == arrCurrent[0].toInt()
                     &&arrNote[1].toInt() == arrCurrent[1].toInt()
@@ -79,13 +78,10 @@ class MainAdapter(private val oniIemClickListener: OniIemClickListener)
                     clGroup.background = ContextCompat.getDrawable(itemView.context, R.drawable.gr3)
                 }
             }
-
             //ставим слушатель щелчков на заметках и передаём заметку через интерфейс в активити
             itemView.setOnClickListener {
                 oniIemClickListener.onItemClick(note)
             }
-           // listOfDate.add(notes[position].titleDate)
         }
-
     }
 }

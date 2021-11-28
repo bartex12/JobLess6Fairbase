@@ -6,9 +6,8 @@ import com.bartex.jobless6_firestor.model.NoteResult
 import com.bartex.jobless6_firestor.model.provider.FireStoreProvider
 import com.bartex.jobless6_firestor.model.provider.RemoteDataProvider
 
-//Теперь Repository только переадресует вызовы методов RemoteDataProvider
+// Repository только переадресует вызовы методов RemoteDataProvider
 object NoteRepository {
-
     private val remoteProvider: RemoteDataProvider = FireStoreProvider()
 
     fun getNotes(): LiveData<NoteResult> = remoteProvider.subscribeToAllNotes()
