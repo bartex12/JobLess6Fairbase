@@ -30,7 +30,7 @@ import java.util.*
 * проверить тип параметра класса Success, поэтому используем проекцию со звездочкой.
 * */
 
-class MainViewModel( ) : ViewModel() {
+class MainViewModel : ViewModel() {
 
     companion object{
         private const val TAG = "33333"

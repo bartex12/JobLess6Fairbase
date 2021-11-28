@@ -35,7 +35,6 @@ class NoteActivity : AppCompatActivity() {
 
     companion object {
         private val EXTRA_NOTE = NoteActivity::class.java.name + "extra.NOTE"
-        private const val SAVE_DELAY = 2000L
 
         fun getStartIntent(context: Context, noteId: String? = null): Intent {
             val intent = Intent(context, NoteActivity::class.java)
@@ -53,7 +52,11 @@ class NoteActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val noteId  = intent.getStringExtra(EXTRA_NOTE)
-        noteId?. let{viewModel.loadNote(it)}
+        if (noteId != null){
+            viewModel.loadNote(noteId)
+        }else{
+            supportActionBar?.title = getString(R.string.new_note_title)
+        }
 
         viewModel.getViewState().observe(this, object : Observer<NoteViewState> {
             override fun onChanged(t: NoteViewState?) {
@@ -88,13 +91,12 @@ class NoteActivity : AppCompatActivity() {
     // присваиваем полученную из базы данных заметку свойству note.
     fun renderData(data: Note?) {
         this.note = data
-        supportActionBar?.title = this.note?.let {note!!.titleDate +"   "+ note?.lastTime
-        } ?: getString(R.string.new_note_title)
+        supportActionBar?.title = this.note?.let {note!!.titleDate +"   "+ note?.lastTime}
 
-        if (note != null) {
-            hPress.setText(note!!.highPress)
-            lPress.setText(note!!.lowPress)
-            puls.setText(note!!.pulse)
+      note?. let {
+            hPress.setText(it.highPress)
+            lPress.setText(it.lowPress)
+            puls.setText(it.pulse)
         }
     }
 
@@ -116,14 +118,16 @@ class NoteActivity : AppCompatActivity() {
         buttonSave =  findViewById(R.id.buttonSave)
     }
 
-    private fun createNewNote():Note = Note(
-        id = UUID.randomUUID().toString(),
-        titleDate = Utils.getDate(),
-        highPress = hPress.text.toString(),
-        lowPress = lPress.text.toString(),
-        pulse = puls.text.toString(),
-        lastTime = Utils.getTime()
-    )
+    private fun createNewNote():Note{
+        return Note(
+            id = UUID.randomUUID().toString(),
+            titleDate = Utils.getDate(),
+            highPress = hPress.text.toString(),
+            lowPress = lPress.text.toString(),
+            pulse = puls.text.toString(),
+            lastTime = Utils.getTime()
+        )
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean  =
         when (item.itemId) {
